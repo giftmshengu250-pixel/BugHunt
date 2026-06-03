@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TaskFlow — Simple Task Manager</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; background: #f0f2f5; margin: 0; padding: 40px 20px; color: #333; }
+    .app { max-width: 600px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 24px; }
+    .add-form { display: flex; gap: 10px; margin-bottom: 32px; }
+    .add-form input { flex: 1; padding: 10px 14px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+    .add-form button { padding: 10px 20px; background: #2563eb; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 15px; }
+    .filters { display: flex; gap: 8px; margin-bottom: 20px; }
+    .filters button { padding: 6px 16px; border: 1px solid #ccc; border-radius: 20px; background: white; cursor: pointer; font-size: 13px; }
+    .filters button.active { background: #2563eb; color: white; border-color: #2563eb; }
+    .task-list { list-style: none; padding: 0; margin: 0; }
+    .task-item { background: white; border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .task-item.completed .task-text { text-decoration: line-through; color: #999; }
+    .task-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; }
+    .task-text { flex: 1; font-size: 15px; }
+    .delete-btn { background: none; border: none; color: #dc2626; cursor: pointer; font-size: 18px; padding: 0 4px; }
+    .stats { margin-top: 24px; font-size: 13px; color: #666; }
+    .empty { text-align: center; color: #999; padding: 40px 0; font-size: 15px; }
+  </style>
+</head>
+<body>
+<div class="app">
+  <h1>TaskFlow</h1>
+  <div class="add-form">
+    <input type="text" id="task-input" placeholder="Add a new task..." />
+    <button id="add-btn">Add task</button>
+  </div>
+  <div class="filters">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="active">Active</button>
+    <button data-filter="completed">Completed</button>
+  </div>
+  <ul class="task-list" id="task-list"></ul>
+  <p class="stats" id="stats"></p>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
