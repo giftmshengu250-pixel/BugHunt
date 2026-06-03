@@ -8,6 +8,9 @@ const taskList = document.getElementById('task-list');
 const statsEl = document.getElementById('stats');
 const filterBtns = document.querySelectorAll('.filters button');
 
+if (!taskInput || !addBtn || !taskList || !statsEl) {
+    throw new Error('TaskFlow: required DOM element(s) missing — check that task-input, add-btn, task-list and stats all exist in the HTML.');
+}
 
 addBtn.addEventListener('mouseover', function () {
   const text = taskInput.value.trim();
@@ -39,16 +42,18 @@ function addTask(text) {
 
 
 function toggleTask(id) {
-  tasks = tasks.map(function (id) {
-    if (id.id === id) {
-      return { ...id, completed: !id.completed };
+  tasks = tasks.map(function (task) {
+    if (task.id === id) {
+      return {
+        ...task,
+        completed: !task.completed
+      };
     }
-    return id;
+    return task;
   });
 
   renderTasks();
 }
-
 
 function deleteTask(id) {
   tasks = tasks.filter(function (task) {
@@ -67,6 +72,13 @@ return task.completed === false;
   if (currentFilter === 'completed') {
     return tasks.filter(function (task) { return task.completed === true; });
   }
+function getFilteredTasks() {
+  if (currentFilter === 'active') {
+    return tasks.filter(function (task) { return task.completed === true; });
+  }
+ if (currentFilter === 'active') {
+  return tasks.filter(function (task) { return task.completed === false; });
+}
   return tasks;
 }
 
