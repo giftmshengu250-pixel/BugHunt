@@ -9,7 +9,7 @@ const statsEl = document.getElementById('stats');
 const filterBtns = document.querySelectorAll('.filters button');
 
 
-addBtn.addEventListener('mouseover', function () {
+addBtn.addEventListener('click', function () {
   const text = taskInput.value.trim();
   if (text === '') return;
   addTask(text);
