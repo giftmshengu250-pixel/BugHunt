@@ -8,6 +8,9 @@ const taskList = document.getElementById('task-list');
 const statsEl = document.getElementById('stats');
 const filterBtns = document.querySelectorAll('.filters button');
 
+if (!taskInput || !addBtn || !taskList || !statsEl) {
+    throw new Error('TaskFlow: required DOM element(s) missing — check that task-input, add-btn, task-list and stats all exist in the HTML.');
+}
 
 addBtn.addEventListener('mouseover', function () {
   const text = taskInput.value.trim();
