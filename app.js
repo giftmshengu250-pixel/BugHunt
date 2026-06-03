@@ -12,7 +12,7 @@ if (!taskInput || !addBtn || !taskList || !statsEl) {
     throw new Error('TaskFlow: required DOM element(s) missing — check that task-input, add-btn, task-list and stats all exist in the HTML.');
 }
 
-addBtn.addEventListener('mouseover', function () {
+addBtn.addEventListener('click', function () {
   const text = taskInput.value.trim();
   if (text === '') return;
   addTask(text);
