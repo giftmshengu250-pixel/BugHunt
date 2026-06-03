@@ -62,9 +62,9 @@ function getFilteredTasks() {
   if (currentFilter === 'active') {
     return tasks.filter(function (task) { return task.completed === true; });
   }
-  if (currentFilter === 'completed') {
-    return tasks.filter(function (task) { return task.completed === true; });
-  }
+ if (currentFilter === 'active') {
+  return tasks.filter(function (task) { return task.completed === false; });
+}
   return tasks;
 }
 
