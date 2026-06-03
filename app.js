@@ -63,6 +63,15 @@ function deleteTask(id) {
 }
 
 
+//DIDO FIXED HERE BUG 3//
+if (currentFilter === 'active') {
+return tasks.filter(function (task) {
+return task.completed === false;
+});
+
+  if (currentFilter === 'completed') {
+    return tasks.filter(function (task) { return task.completed === true; });
+  }
 function getFilteredTasks() {
   if (currentFilter === 'active') {
     return tasks.filter(function (task) { return task.completed === true; });
