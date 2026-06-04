@@ -64,20 +64,13 @@ function deleteTask(id) {
 
 
 //DIDO FIXED HERE BUG 3//
-if (currentFilter === 'active') {
-return tasks.filter(function (task) {
-return task.completed === false;
-});
 
-  if (currentFilter === 'completed') {
-    return tasks.filter(function (task) { return task.completed === true; });
-  }
 function getFilteredTasks() {
   if (currentFilter === 'active') {
-    return tasks.filter(function (task) { return task.completed === true; });
+    return tasks.filter(function (task) { return task.completed === false; });
   }
  if (currentFilter === 'active') {
-  return tasks.filter(function (task) { return task.completed === false; });
+  return tasks.filter(function (task) { return task.completed === true; });
 }
   return tasks;
 }
@@ -114,7 +107,7 @@ function renderTasks() {
     deleteBtn.className = 'delete-btn';
     deleteBtn.textContent = '×';
     deleteBtn.addEventListener('click', function (event) {
-      deleteTask(event.target.id);
+      deleteTask(task.id);
     });
 
     li.appendChild(checkbox);
